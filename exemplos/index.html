@@ -3,30 +3,23 @@
 <link rel="icon" href="../favicon.ico" />
 
 <head>
-    <!-- <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-    </style> -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>BAHM - 1 Segundo</title>
 
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <style>
         @media only screen and (max-width: 1000px) {
@@ -45,89 +38,58 @@
             <div class="col-md-5">
                 <a href="../index.html">
                     <img src="../IMG/image1.jpeg" style="width: 100%;" />
-
                 </a>
             </div>
 
             <div class="col-md-7">
-
                 <img src="../IMG/image2.jpeg" style="width: 100%" />
             </div>
         </div>
         <br>
         <br>
 
-
-
         <div class="row" style="margin-top:2%;">
             <div className="text-justify" class="col-md-2 col-sm-2"></div>
 
             <div className="text-justify" class="col-md-8 col-sm-8">
-                <iframe id="video1" style="margin-bottom:17%;" width="100%" height="315"
+                <iframe style="margin-bottom:17%;" width="100%" height="450"
                     src="https://www.youtube.com/embed/cVnMVR1zFYA" title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
-               <!--  <img src="../IMG/image5.jpeg" width="100%" style="margin-bottom:17%;" /> -->
             </div>
 
             <div className="text-justify" class="col-md-2 col-sm-2">
-                <a href="../index.html" style="font-size: large;color: white;background-color: blue;padding: 10px;font-weight: bolder;">VOLTAR</a>
+                <a href="../index.html"
+                    style="font-size: large;color: white;background-color: blue;padding: 10px;font-weight: bolder;">
+                    VOLTAR
+                </a>
             </div>
         </div>
 
-
-        <!--         <div class="row">
-
-            
-                <img src="../IMG/image16.jpeg" style="width: 23%;margin: 5%;" />
-            
-        
-
-            
-            
-                <img src="../IMG/image11.jpeg" style="width: 23%;margin: 5%;" />
-            
-
-        
-
-            
-            
-                <img src="../IMG/image12.jpeg" style="width: 23%;margin: 5%;" />
-            
-            
-        </div>
-
-
-        <div class="row">
-            
-                <img src="../IMG/image13.jpeg" style="width: 23%;margin: 5%;" />
-            
-
-            
-                <img src="../IMG/image14.jpeg" style="width: 23%;margin: 5%;" />
-            
-
-            
-                <img src="../IMG/image15.jpeg" style="width: 23%;margin: 5%;" />
-            
-        </div> -->
 
 
         <div id="video2" class="row" style="text-align: center;margin-top:2%;">
 
             <div class="col-md-3" style="margin-left: 4%;margin-right: 4%;">
                 <img src="../IMG/image16.jpeg" style="width: 100%;" />
-                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">PRF - PIRAÍ (RJ) EXEMPLO 01</p>
+                <div class="movie-btn widscreen-btn" style="cursor: pointer;" onclick="video1(`https://www.youtube.com/embed/cVnMVR1zFYA`)">
+                    <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">PRF - PIRAÍ (RJ) EXEMPLO
+                        01</p>
+                </div>
+
+
             </div>
 
             <div class="col-md-3" style="margin-left: 4%;margin-right: 4%;">
                 <img src="../IMG/image11.jpeg" style="width: 100%;" />
-                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">PRE - PINDAMONHAGABA (SP) EXEMPLO 02</p>
+                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">PRE - PINDAMONHAGABA (SP)
+                    EXEMPLO 02</p>
             </div>
 
             <div class="col-md-3" style="margin-left: 4%;margin-right: 4%;">
                 <img src="../IMG/image12.jpeg" style="width: 100%;" />
-                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">POSTO ALVORADA - GOIATUBA (GO) EXEMPLO 03</p>
+                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">POSTO ALVORADA - GOIATUBA
+                    (GO) EXEMPLO 03</p>
             </div>
 
         </div>
@@ -136,17 +98,20 @@
         <div class="row" style="text-align: center;margin-top:7%;">
             <div class="col-md-3" style="margin-left: 4%;margin-right: 4%;">
                 <img src="../IMG/image13.jpeg" style="width: 100%;" />
-                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">POLÍCIA MILITAR - TAUBATÉ (SP) EXEMPLO 04</p>
+                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">POLÍCIA MILITAR - TAUBATÉ
+                    (SP) EXEMPLO 04</p>
             </div>
 
             <div class="col-md-3" style="margin-left: 4%;margin-right: 4%;">
                 <img src="../IMG/image14.jpeg" style="width: 100%;" />
-                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">PRAÇA DE PEDÁGIO - SÃO PAULO (SP) EXEMPLO 05</p>
+                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">PRAÇA DE PEDÁGIO - SÃO PAULO
+                    (SP) EXEMPLO 05</p>
             </div>
 
             <div class="col-md-3" style="margin-left: 4%;margin-right: 4%;">
                 <img src="../IMG/image15.jpeg" style="width: 100%" />
-                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">S.A.U. - BRAGANÇA PAULISTA (SP) EXEMPLO 06</p>
+                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">S.A.U. - BRAGANÇA PAULISTA
+                    (SP) EXEMPLO 06</p>
             </div>
         </div>
 
@@ -295,6 +260,106 @@
     </div>
 
 
+
+
+    <div class="modal-vid" id="modalCompleto">
+        <div class="movie-box">
+            <div class="wide-screen">
+                <div class="vid-holder">
+                    <div class="close" vidUrl="#">Close</div>
+                    <img class="widescreen-img" src="https://s3.amazonaws.com/imglibs/bg_widescreen.gif" />
+                    <img class="standard-img" src="https://s3.amazonaws.com/imglibs/standard_bg.gif" />
+                    <img class="sixteen-nine" src="https://s3.amazonaws.com/imglibs/16x9_bg.png" />
+                    <img class="pal" src="https://s3.amazonaws.com/imglibs/pal.png" />
+
+                    <video id="myVideo" class="myVideo hide" src="" controls></video>
+                    <iframe class="youTube hide" src="" frameborder="0" allowfullscreen></iframe>
+                    <iframe id="video1" style="margin-bottom:17%;" width="100%" height="450"
+                        src="" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        console.log()
+
+        function video1(ok){
+            console.log(ok)
+            document.getElementById('video1').src = ok
+        }
+
+        $(document).ready(function () {
+
+            $(".movie-btn").click(function () {
+                $('.myVideo').attr("src", $(this).attr("vidUrl"));
+                document.getElementById('myVideo').play();
+                $('.myVideo').removeClass("hide");
+                $('.myVideo').addClass("show");
+                $('.youTube').addClass("hide");
+                $('.youTube').removeClass("show");
+            });
+
+            $(".tube-link").click(function () {
+                $('.youTube').removeClass("hide");
+                $('.youTube').addClass("show");
+                $('.myVideo').addClass("hide");
+                $('.myVideo').removeClass("show");
+                $('.youTube').attr("src", $(this).attr("vidUrl"));
+            });
+
+            $(".widscreen-btn").click(function () {
+                $(".modal-vid").fadeIn(500);
+                $(".vid-holder img").removeClass("show");
+                $(".widescreen-img").addClass("show");
+            });
+
+            $(".standard-btn").click(function () {
+                $(".modal-vid").fadeIn(500);
+                $(".vid-holder img").removeClass("show");
+                $(".standard-img").addClass("show");
+            });
+
+            $(".sixteen-nine-btn").click(function () {
+                $(".modal-vid").fadeIn(500);
+                $(".vid-holder img").removeClass("show");
+                $(".sixteen-nine").addClass("show");
+            });
+
+            $(".pal-btn").click(function () {
+                $(".modal-vid").fadeIn(500);
+                $(".vid-holder img").removeClass("show");
+                $(".pal").addClass("show");
+            });
+
+
+            $(".close").click(function () {
+                $(".modal-vid").fadeOut(500);
+                /*document.getElementById('myVideo').pause();*/
+                $('.youTube, .myVideo').attr('src', '');
+            });
+
+        });
+
+
+
+        window.document.onkeydown = function (e) {
+            if (!e) e = event;
+            if (e.keyCode == 27) {
+
+                $('.youTube, .myVideo').attr('src', '');
+                $('.modal-vid').fadeOut(500);
+                document.getElementById('myVideo').pause();
+
+            }
+
+
+        };
+
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
