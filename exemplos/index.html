@@ -70,31 +70,33 @@
 
         <div id="video2" class="row" style="text-align: center;margin-top:2%;">
 
-            <div class="col-md-3" style="margin-left: 4%;margin-right: 4%;">
-                <img src="../IMG/image16.jpeg" style="width: 100%;" />
-                <div class="movie-btn widscreen-btn" style="cursor: pointer;" onclick="video1(`https://www.youtube.com/embed/uCKRnqnDv7s`)">
-                    <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">PRF - PIRAÍ (RJ) EXEMPLO
-                        01</p>
-                </div>
-
-                
+            <div class="col-md-3 movie-btn widscreen-btn" 
+                style="margin-left: 4%;margin-right: 4%;cursor: pointer;"
+                onclick="video1(`https://www.youtube.com/embed/A5b4Aoo2T0g`)">
+                <img src="../IMG/image16.jpeg" style="width: 100%;"/>
+                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">PRF - PIRAÍ (RJ) EXEMPLO
+                    01</p>
             </div>
 
-            <div class="col-md-3" style="margin-left: 4%;margin-right: 4%;">
+            <div class="col-md-3 movie-btn widscreen-btn" style="margin-left: 4%;margin-right: 4%;cursor: pointer;"  onclick="video1(`https://www.youtube.com/embed/DAhtFGI62xU`)">
                 <img src="../IMG/image11.jpeg" style="width: 100%;" />
-                <div class="movie-btn widscreen-btn" style="cursor: pointer;" onclick="video1(`https://www.youtube.com/embed/Dw1R4qvHOHo`)">
-                    <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">PRE - PINDAMONHAGABA (SP)
+  
+                
+                    <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">PRE - PINDAMONHAGABA
+                        (SP)
                         EXEMPLO 02</p>
-                </div>
+              
             </div>
 
             <div class="col-md-3" style="margin-left: 4%;margin-right: 4%;">
                 <img src="../IMG/image12.jpeg" style="width: 100%;" />
-           
-                
-                                <div class="movie-btn widscreen-btn" style="cursor: pointer;" onclick="video1(`https://www.youtube.com/embed/10vYiizRDdM`)">
-                   <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">POSTO ALVORADA - GOIATUBA
-                    (GO) EXEMPLO 03</p>
+
+
+                <div class="movie-btn widscreen-btn" style="cursor: pointer;"
+                    onclick="video1(`https://www.youtube.com/embed/THS6_ExUtzk`)">
+                    <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">POSTO ALVORADA -
+                        GOIATUBA
+                        (GO) EXEMPLO 03</p>
                 </div>
             </div>
 
@@ -104,9 +106,11 @@
         <div class="row" style="text-align: center;margin-top:7%;">
             <div class="col-md-3" style="margin-left: 4%;margin-right: 4%;">
                 <img src="../IMG/image13.jpeg" style="width: 100%;" />
-                <div class="movie-btn widscreen-btn" style="cursor: pointer;" onclick="video1(`https://www.youtube.com/embed/Mwhf0AbV71M`)">
-                <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">POLÍCIA MILITAR - TAUBATÉ
-                    (SP) EXEMPLO 04</p>
+                <div class="movie-btn widscreen-btn" style="cursor: pointer;"
+                    onclick="video1(`https://www.youtube.com/embed/iqvtdUYCnR8`)">
+                    <p style="font-weight: bolder;text-decoration: underline; font-size: 130%;">POLÍCIA MILITAR -
+                        TAUBATÉ
+                        (SP) EXEMPLO 04</p>
                 </div>
             </div>
 
@@ -282,8 +286,8 @@
 
                     <video id="myVideo" class="myVideo hide" src="" controls></video>
                     <iframe class="youTube hide" src="" frameborder="0" allowfullscreen></iframe>
-                    <iframe id="video1" style="margin-bottom:17%;" width="100%" height="450"
-                        src="" title="YouTube video player" frameborder="0"
+                    <iframe id="video1" style="margin-bottom:17%;" width="100%" height="450" src=""
+                        title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
@@ -295,7 +299,7 @@
     <script>
         console.log()
 
-        function video1(ok){
+        function video1(ok) {
             console.log(ok)
             document.getElementById('video1').src = ok
         }
