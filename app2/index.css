@@ -63,3 +63,15 @@
     line-height: 38px;
     text-align: center;
 }
+
+
+<style>
+  #map {
+    height: 100%;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>

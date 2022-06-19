@@ -34,11 +34,6 @@ function firstTabInteraction() {
 }
 
 function secondTabInteraction() {
-    const secondButton = document.getElementById("second_button")
-    secondButton.addEventListener("click", (event) => {
-        let actualData = document.getElementById("second_data")
-        console.log(actualData.innerHTML)
-        actualData.textContent = actualData.textContent - 1
-    })
+
 }
 
