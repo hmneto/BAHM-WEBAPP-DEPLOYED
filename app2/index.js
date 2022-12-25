@@ -11,7 +11,7 @@ function openView(page) {
   if (page == "EditPoint") page = "SavePoint"
 
 
-  fetch(`pages19/${page}.html`)
+  fetch(`pages20/${page}.html`)
     .then(function (response) {
       return response.text();
     })
