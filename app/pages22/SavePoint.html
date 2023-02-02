@@ -1,0 +1,79 @@
+<div class="container-fluid" style="padding: 100px">
+  <div class="row">
+    <button onclick="openView('MapPage');">Mapa</button>
+  </div>
+
+  <input id="inputIdPonto" type="text" hidden />
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="namePoint">Point's name</label>
+        <input type="text" class="form-control" id="namePoint"
+          placeholder="Name that will be shown in pop of icon clicked" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Latitude">Latitude</label>
+        <input type="text" class="form-control" id="Latitude" disabled />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Longitude">Longitude</label>
+        <input type="text" class="form-control" id="Longitude" disabled />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-11">
+      <div class="form-group">
+        <label for="Longitude">Icon</label>
+        <input list="answers" id="answer" size="50" autocomplete="off" class="form-control" onmousedown="value = '';"
+          placeholder="Select the icon" onchange="window.savePointGlobal.getValueFromDataList()" />
+        <datalist id="answers">
+          <option data-value="42" value="The answer"></option>
+        </datalist>
+
+      </div>
+    </div>
+    <div class="col-md-1">
+      <div class="form-group">
+        <label for="addIcon" style="color: white;">-</label>
+        <input id="addIcon" type="button" class="form-control" value="add" onclick="openView('IconPage');"/>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="Longitude2">Page</label>
+        <input list="answers2" id="answer2" size="50" autocomplete="off" class="form-control" onmousedown="value = '';"
+          placeholder="Select the icon" onchange="window.savePointGlobal.getValueFromDataList2()" />
+        <datalist id="answers2">
+          <option data-value="42" value="The answer"></option>
+        </datalist>
+
+
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <div class="row">
+    <div class="col-md-12">
+      <button id="btnSavePoint" onclick="savePointGlobal.addPoint()">Save Point</button>
+
+      <button id="btnEditPoint" onclick="savePointGlobal.editPoint()" hidden>Edit Point</button>
+    </div>
+  </div>
+</div>
