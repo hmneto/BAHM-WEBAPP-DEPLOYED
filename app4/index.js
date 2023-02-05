@@ -6,7 +6,7 @@ const linkApi = "https://bahm.fly.dev"
 // let pagina = null
 let dadosPonto = null
 let edit = false
-openView("LoginPage");
+
 
 function openView(page) {
   if (page == "EditPoint") page = "SavePoint"
@@ -24,18 +24,22 @@ function openView(page) {
     });
 }
 
+
 topFunction = function () {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
 
+
 function hoverTop(e){
 e.style.backgroundColor = '#555'
 }
 
+
 function hoverTop2(e){
   e.style.backgroundColor = 'red'
-}
+  }
+
 
 function get(link) {
   return fetch(linkApi + link, {
@@ -75,7 +79,7 @@ async function MontaDados(mapPage, googleMaps) {
   mapPage.setPositionsInInputs(googleMaps);
   const centro = mapPage.centerMap(8, 2, googleMaps);
   if (!centro) return;
-  const p = await post("/ponto/Pontos", {
+  const p = await post("/ponto/GetPontos", {
     LatitudePonto: centro.lat,
     LongitudePonto: centro.lng,
     Zoom: googleMaps.getZoomMap(),
@@ -83,6 +87,8 @@ async function MontaDados(mapPage, googleMaps) {
   if (p == undefined) return
   mapPage.mountPointsInTheMap(p, googleMaps);
 }
+
+
 
 async function addInteraction(content) {
   if (content === "SavePoint") {
@@ -107,11 +113,15 @@ async function addInteraction(content) {
       }
     }
 
-    const pagina = await get('/pagina/Pagina?PaginaId='+dadosPonto.paginaId)
+    const pagina = await get('/pagina/get?PaginaId='+dadosPonto.paginaId)
   
+    console.log(pagina)
+
+
     const { 
       listContatoDto, 
       enderecoPagina, 
+      info, 
       nomePagina, 
       listSiteDto ,
       concessionaria
@@ -119,6 +129,7 @@ async function addInteraction(content) {
 
 
     const {
+      nomeConcessionaria,
       infoConcessionaria
     } = concessionaria
 
@@ -126,6 +137,8 @@ async function addInteraction(content) {
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     var img = document.getElementById("scream");
+
+
 
     canvas.width = 1150;
     canvas.height = 850;
@@ -141,6 +154,10 @@ async function addInteraction(content) {
     ctx.fillText(nomePagina, horizontal, altura);
     altura += linhaa;
     ctx.fillText(enderecoPagina, horizontal, altura);
+
+
+
+
 
     altura += linhaa;
 
@@ -164,6 +181,8 @@ async function addInteraction(content) {
       if (!obj[listSiteDto[i].tipoSite]) obj[listSiteDto[i].tipoSite] = [];
       obj[listSiteDto[i].tipoSite].push(listSiteDto[i].linkSite);
     }
+
+
 
     const {
       STREET,
@@ -203,6 +222,7 @@ async function addInteraction(content) {
   }
 }
 
+
 function montaPagina(array){
   if(!array)return
   for (let index = 0; index < array.length; index++) {
@@ -217,6 +237,7 @@ function montaPagina(array){
   }
 }
 
+
 function montaPagina2(array){
   if(!array)return
   for (let index = 0; index < array.length; index++) {
@@ -224,7 +245,7 @@ function montaPagina2(array){
     const iframe = document.createElement('img')
     if (element.indexOf('http') === -1)
     {
-      iframe.src = linkApi+'/imagem/Imagem?i='+element
+      iframe.src = linkApi+'/Imagens?i='+element
     }else{
       iframe.src = element
     }
@@ -255,6 +276,8 @@ async function EditPointInteraction() {
   document.getElementById('inputIdPonto').value = s.IdPonto
 }
 
+
+
 async function SavePointInteraction() {
   const savePoint = new SavePoint();
   window.savePointGlobal = savePoint;
@@ -264,6 +287,10 @@ async function SavePointInteraction() {
   const p = await get("/GetPaginass");
   document.getElementById("answers2").innerHTML = savePoint.builtPage2(p);
 }
+
+
+
+
 
 function MapPageInteraction() {
   const mapPage = new MapPage();
@@ -280,9 +307,12 @@ function MapPageInteraction() {
   MontaDados(mapPage, googleMaps);
 }
 
+openView("LoginPage");
+
+
 function mySubmitFunction(e) {
   e.preventDefault();
-  fetch(linkApi + "/usuario/Login", {
+  fetch(linkApi + "/Login", {
     method: "POST",
     body: JSON.stringify({
       EmailUsuario: document.getElementById('inputEmailLogin').value,
@@ -303,3 +333,5 @@ function mySubmitFunction(e) {
       }
     });
 }
+
+

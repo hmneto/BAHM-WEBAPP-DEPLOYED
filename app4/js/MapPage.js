@@ -144,7 +144,7 @@ class MapPage {
       point = googleMaps.createMark(
         googleMaps.getLatLngMaps(element.latitudePonto, element.longitudePonto),
         element.icone.linkIcone.indexOf("http") === -1
-          ? linkApi+"/imagem/Imagem?i=" + element.icone.linkIcone
+          ? linkApi+"/imagens?i=" + element.icone.linkIcone
           : element.icone.linkIcone
       );
 
