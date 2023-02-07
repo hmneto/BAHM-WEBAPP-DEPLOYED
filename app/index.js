@@ -8,7 +8,7 @@ let dadosPonto = null
 
 
 function openView(page, edita, id) {
-  fetch(`pages30/${page}.html`)
+  fetch(`pages32/${page}.html`)
     .then(function (response) {
       return response.text();
     })
@@ -22,20 +22,53 @@ function openView(page, edita, id) {
 
 function addInteraction(content, edita, id) {
   if (content === "ponto") {
-    if (edita) EditPointInteraction();
-    else SavePointInteraction();
-  } else if (content === "mapa") {
-    mapaInteraction();
+    console.log(content, edita, id)
+    if (edita) pontoEditaInteracao(id);
+    else pontoNovoInteracao();
   }
-  else if (content === "paginaMapa") {
-    paginaMapaInteraction(id)
-  }
-  else if (content === "listaPagina") {
-    listPaginaInteraction()
-  } else if (content === "pagina") {
+
+  else if (content === "pagina") {
     if (edita) paginaEditaInteracao(id)
     else paginaSalvaInteracao()
   }
+
+  else if (content === "concessionaria") {
+    if (edita) concessionariaEditaInteracao(id)
+    else concessionariaSalvaInteracao()
+  }
+
+  else if (content === "cliente") {
+    if (edita) clienteEditaInteracao(id)
+    else clienteSalvaInteracao()
+  }
+
+
+
+  //lista
+  else if (content === "listaPagina") {
+    listaPaginaInteracao()
+  }
+
+  else if (content === "listaConcessionaria") {
+    listaConcessionariaInteracao()
+  }
+
+  else if (content === "listaCliente") {
+    listaClienteInteracao()
+  }
+
+  // cliente
+  else if (content === "paginaMapa") {
+    paginaMapaInteracao(id)
+  }
+
+  else if (content === "mapa") {
+    mapaInteracao();
+  }
 }
+// const aaa = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQiLCJyb2xlIjoiQURNSU5JU1RSQURPUiIsIm5iZiI6MTY3NTc5MDYxNCwiZXhwIjoxNjc1ODQ0NjE0LCJpYXQiOjE2NzU3OTA2MTR9.gatazrYPVy6uqWGWInA0v-W7laEJLy7sGB5uo_vEscc"
+
+
+// sessionStorage.setItem("loginStore", aaa)
 
 openView("login");

@@ -228,7 +228,7 @@ async function MontaDados(centerMap) {
 
 
 
-function mapaInteraction() {
+function mapaInteracao() {
   const centerMap = new CenterMap()
   setUpInitalStorage();
   myMap();

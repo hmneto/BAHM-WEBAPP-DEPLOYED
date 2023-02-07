@@ -1,4 +1,4 @@
-async function EditPointInteraction() {
+async function pontoEditaInteracao() {
     document.getElementById('salvar').hidden = true
     document.getElementById('editar').hidden = false
     const s = await httpGet("/Ponto/Detalhes?id=" + dadosPonto.idPonto);

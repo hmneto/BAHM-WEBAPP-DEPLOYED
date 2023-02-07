@@ -11,7 +11,7 @@ async function pontoNovo() {
 
 
 
-async function SavePointInteraction() {
+async function pontoNovoInteracao() {
     fillInputsLatLng();
     carregaSelectIcone();
     carregaSelectPagina();

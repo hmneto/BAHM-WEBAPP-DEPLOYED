@@ -13,9 +13,8 @@ topFunction = function () {
 
 
 
-  async function paginaMapaInteraction(id){
-
-
+  async function paginaMapaInteracao(id){
+  
   var mybutton = document.getElementById("myBtn");
   window.onscroll = function () { scrollFunction() };
 
@@ -28,6 +27,7 @@ topFunction = function () {
   }
 
   const pagina = await httpGet('/pagina/Pagina?PaginaId='+id)
+  console.log(pagina)
 
   const { 
     listContatoDto, 
