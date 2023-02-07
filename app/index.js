@@ -8,7 +8,7 @@ let dadosPonto = null
 
 
 function openView(page, edita, id) {
-  fetch(`pages32/${page}.html`)
+  fetch(`pages33/${page}.html`)
     .then(function (response) {
       return response.text();
     })
