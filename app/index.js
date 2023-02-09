@@ -73,6 +73,11 @@ function addInteraction(content, edita, id) {
   else if (content === "mapa") {
     mapaInteracao();
   }
+
+
+  else if (content === "login") {
+    loginInteracao();
+  }
 }
 // const aaa = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQiLCJyb2xlIjoiQURNSU5JU1RSQURPUiIsIm5iZiI6MTY3NTc5MDYxNCwiZXhwIjoxNjc1ODQ0NjE0LCJpYXQiOjE2NzU3OTA2MTR9.gatazrYPVy6uqWGWInA0v-W7laEJLy7sGB5uo_vEscc"
 
@@ -81,4 +86,10 @@ function addInteraction(content, edita, id) {
 
 // openView("mapa");
 
-openView("login");
+
+if(sessionStorage.getItem("loginStore")){
+  openView("mapa");
+}else{
+  openView("login");
+}
+

@@ -8,6 +8,7 @@ function httpGet(link) {
     }).then(function (x) {
       if (x.status == 401) {
         openView("login")
+        sessionStorage.setItem("loginStore", false)
       } else {
         return x.json()
       }
@@ -25,6 +26,7 @@ function httpGet(link) {
     }).then(function (x) {
       if (x.status == 401) {
         openView("login")
+        sessionStorage.setItem("loginStore", false)
       } else {
         return x
       }
@@ -43,6 +45,7 @@ function httpGet(link) {
     }).then(function (x) {
       if (x.status == 401) {
         openView("login")
+        sessionStorage.setItem("loginStore", false)
       } else {
         return x
       }
