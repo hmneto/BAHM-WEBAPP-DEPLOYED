@@ -66,7 +66,7 @@ topFunction = function () {
 
   listContatoDto.forEach((element) => {
     ctx.fillText(
-      `${element.nomeContato ? element.nomeContato : ""} ${element.telefoneContato ? element.telefoneContato : ""} ${element.emailContato ? element.emailContato : ""}`,
+      `${element.infoContato ? element.infoContato : ""}`,
       horizontal,
       altura
     );

@@ -37,11 +37,15 @@ function addInteraction(content, edita, id) {
     else concessionariaSalvaInteracao()
   }
 
+  else if (content === "contato") {
+    if (edita) contatoEditaInteracao(id)
+    else contatoSalvaInteracao()
+  }
+
   else if (content === "cliente") {
     if (edita) clienteEditaInteracao(id)
     else clienteSalvaInteracao()
   }
-
 
 
   //lista
@@ -57,6 +61,10 @@ function addInteraction(content, edita, id) {
     listaClienteInteracao()
   }
 
+  else if (content === "listaContato") {
+    listaContatoInteracao()
+  }
+
   // cliente
   else if (content === "paginaMapa") {
     paginaMapaInteracao(id)
@@ -70,5 +78,7 @@ function addInteraction(content, edita, id) {
 
 
 // sessionStorage.setItem("loginStore", aaa)
+
+// openView("mapa");
 
 openView("login");
