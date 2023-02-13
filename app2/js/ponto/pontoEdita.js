@@ -24,10 +24,10 @@ async function pontoEdita() {
     }
 
     await httpPut("/Ponto/Edita", ponto).then(x => {
-        // if (x) {
+        if (x) {
             openView("mapa")
-        // } else {
-        //     alert("erro")
-        // }
+        } else {
+            alert("erro")
+        }
     });
 }

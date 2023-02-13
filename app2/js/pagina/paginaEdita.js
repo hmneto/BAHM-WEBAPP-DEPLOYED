@@ -2,6 +2,8 @@ async function paginaEditaInteracao(id) {
     document.getElementById('salvar').hidden = true
     document.getElementById('editar').hidden = false
     const detalhesPagina = await httpGet("/pagina/Pagina?PaginaId=" + id)
+    console.log(detalhesPagina)
+
 
     const listaContatoSelecionado = document.getElementById('listaContatoSelecionado')
     listaContatoSelecionado.appendChild(document.createElement('br'))
@@ -9,19 +11,26 @@ async function paginaEditaInteracao(id) {
     const listaSiteSelecionado = document.getElementById('listaSiteSelecionado')
     listaSiteSelecionado.appendChild(document.createElement('br'))
 
+
     for (let i = 0; i < detalhesPagina.listContatoDto.length; i++) {
         montaPaginaContato(detalhesPagina.listContatoDto[i])
     }
 
+
     for (let i = 0; i < detalhesPagina.listSiteDto.length; i++) {
         montaPaginaSite(detalhesPagina.listSiteDto[i])
     }
+
+
+    
 
     document.getElementById('idPagina').value = detalhesPagina.idPagina
     document.getElementById('nomePagina').value = detalhesPagina.nomePagina
     document.getElementById('enderecoPagina').value = detalhesPagina.enderecoPagina
     document.getElementById('concessionaria').value = detalhesPagina.concessionaria.nomeConcessionaria
     document.getElementById('idConcessionaria').value = detalhesPagina.concessionaria.idConcessionaria
+
+
 }
 
 async function paginaEdita() {
@@ -37,6 +46,7 @@ async function paginaEdita() {
     const collection0 = document.getElementsByClassName("siteSelecionadoClass")
     const ListSiteDto = []
     for (let i = 0; i < collection0.length; i++) {
+        console.log(collection0[i].value)
         ListSiteDto.push({ IdSite: collection0[i].value })
     }
 
@@ -52,11 +62,11 @@ async function paginaEdita() {
 
     await httpPut("/Pagina/Edita", pagina).then(x => {
 
-        // if (x) {
+        if (x) {
             openView("listaPagina")
-        // } else {
-        //     alert("erro")
-        // }
+        } else {
+            alert("erro")
+        }
     });
 }
 
