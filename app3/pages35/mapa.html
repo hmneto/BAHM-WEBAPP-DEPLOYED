@@ -1,0 +1,91 @@
+<input maxlength="10" size="8" className="item" type="text" id="lat" placeholder="latitude" style="
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    margin-top: 130px;
+    margin-left: 10px;
+    background-color: white;
+    padding: 2;
+  " />
+
+<input maxlength="10" size="8" className="item" type="text" id="long" placeholder="longitude" style="
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    margin-top: 180px;
+    margin-left: 10px;
+    background-color: white;
+    padding: 2;
+  " />
+
+<input maxlength="2" size="1" className="item" type="text" id="zoom" placeholder="zoom" style="
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    margin-top: 230px;
+    margin-left: 10px;
+    background-color: white;
+    padding: 2;
+  " />
+
+<button id="control" onclick="goToPosition()" style="
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    margin-top: 280px;
+    margin-left: 10px;
+    background-color: white;
+    padding: 2;
+  ">
+  Ir
+</button>
+
+<button id="control" onclick="
+if(!getLastLatLngClick())return;
+openView('ponto',false);" style="
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    margin-top: 330px;
+    margin-left: 10px;
+    background-color: white;
+    padding: 2;
+  ">
+  Salvar Ponto
+</button>
+
+<button id="control" onclick="
+  if(!getLastLatLngClick())return;
+  if(!isPointClicked())return;
+  openView('ponto',true);" style="
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    margin-top: 380px;
+    margin-left: 10px;
+    background-color: white;
+    padding: 2;
+  ">
+  Editar Ponto
+</button>
+
+<button id="control" onclick="openView('listaPagina');" style="
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    margin-top: 430px;
+    margin-left: 10px;
+    background-color: white;
+    padding: 2;
+  ">
+  Paginas
+</button>
+
+<div id="googleMap" style="width: 100%"></div>
