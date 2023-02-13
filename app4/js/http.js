@@ -42,6 +42,7 @@ function httpGet(link) {
   function httpPut(link, obj) {
     return fetch(linkApi + link, {
       method: "PUT",
+      mode: 'cors',
       body: JSON.stringify(obj),
       headers: new Headers({
         "content-type": "application/json",
