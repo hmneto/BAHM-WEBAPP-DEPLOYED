@@ -3,12 +3,6 @@ async function paginaEditaInteracao(id) {
     document.getElementById('editar').hidden = false
     const detalhesPagina = await httpGet("/pagina/Pagina?PaginaId=" + id)
 
-    const listaContatoSelecionado = document.getElementById('listaContatoSelecionado')
-    // listaContatoSelecionado.appendChild(document.createElement('br'))
-
-    const listaSiteSelecionado = document.getElementById('listaSiteSelecionado')
-    // listaSiteSelecionado.appendChild(document.createElement('br'))
-
     for (let i = 0; i < detalhesPagina.listContatoDto.length; i++) {
         montaPaginaContato(detalhesPagina.listContatoDto[i])
     }
@@ -31,8 +25,6 @@ async function paginaEdita() {
     for (let i = 0; i < collection.length; i++) {
         ListContatoDto.push({ IdContato: collection[i].value })
     }
-
-
 
     const collection0 = document.getElementsByClassName("siteSelecionadoClass")
     const ListSiteDto = []
