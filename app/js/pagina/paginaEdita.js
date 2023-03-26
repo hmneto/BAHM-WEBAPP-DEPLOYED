@@ -4,10 +4,10 @@ async function paginaEditaInteracao(id) {
     const detalhesPagina = await httpGet("/pagina/Pagina?PaginaId=" + id)
 
     const listaContatoSelecionado = document.getElementById('listaContatoSelecionado')
-    listaContatoSelecionado.appendChild(document.createElement('br'))
+    // listaContatoSelecionado.appendChild(document.createElement('br'))
 
     const listaSiteSelecionado = document.getElementById('listaSiteSelecionado')
-    listaSiteSelecionado.appendChild(document.createElement('br'))
+    // listaSiteSelecionado.appendChild(document.createElement('br'))
 
     for (let i = 0; i < detalhesPagina.listContatoDto.length; i++) {
         montaPaginaContato(detalhesPagina.listContatoDto[i])

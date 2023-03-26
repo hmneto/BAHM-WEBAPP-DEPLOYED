@@ -31,9 +31,10 @@ async function listaPaginaInteracao() {
       
     })
 
-
-
     td4.appendChild(btnEditar)
+
+    btnEditar.id = "paginaEditar"+element.idPagina
+
     td4.appendChild(btnUsar)
 
     tr.appendChild(td1)

@@ -265,7 +265,6 @@ function montaPaginaContato(element) {
   formGroup.appendChild(inputInfoContato)
   formGroup.appendChild(inputIdContato)
   listaContatoSelecionado.appendChild(row)
-  listaContatoSelecionado.appendChild(document.createElement('br'))
 }
 
 
@@ -299,7 +298,6 @@ function montaPaginaSite(element) {
   formGroup.appendChild(inputInfoSite)
   formGroup.appendChild(inputIdSite)
   listaSiteSelecionado.appendChild(row)
-  listaSiteSelecionado.appendChild(document.createElement('br'))
 }
 
 

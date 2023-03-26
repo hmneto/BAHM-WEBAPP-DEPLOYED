@@ -1,4 +1,4 @@
-async function listaPaginaInteracao() {
+async function listaPaginaInteracao(edita) {
   const listaPaginas = await httpGet("/Pagina/ListaTodos")
   const tabelaListaPaginas = document.getElementById('tabelaListaPaginas')
   listaPaginas.forEach(element => {
@@ -31,11 +31,16 @@ async function listaPaginaInteracao() {
       
     })
 
-    td4.appendChild(btnEditar)
+    if(edita){
+      td4.appendChild(btnEditar)
+    }
 
     btnEditar.id = "paginaEditar"+element.idPagina
-
-    td4.appendChild(btnUsar)
+    if(!edita){
+      td4.appendChild(btnUsar)
+      document.getElementById('buttonMap').style.display='none'
+      document.getElementById('buttonPage').style.display='none'
+    }
 
     tr.appendChild(td1)
     tr.appendChild(td2)

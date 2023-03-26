@@ -6,7 +6,7 @@ const linkApi = "https://bahm.fly.dev"
 let dadosPonto = null
 
 function openViewTable(page, edita, id) {
-  fetch(`pages39/${page}.html`)
+  fetch(`pages40/${page}.html`)
     .then(function (response) {
       return response.text();
     })
@@ -18,7 +18,7 @@ function openViewTable(page, edita, id) {
 
 
 function openView(page, edita, id) {
-  fetch(`pages39/${page}.html`)
+  fetch(`pages40/${page}.html`)
     .then(function (response) {
       return response.text();
     })
@@ -68,7 +68,7 @@ function addInteraction(content, edita, id) {
 
   //lista
   else if (content === "listaPagina") {
-    listaPaginaInteracao()
+    listaPaginaInteracao(edita)
   }
 
   else if (content === "listaConcessionaria") {

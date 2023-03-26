@@ -4,7 +4,7 @@ async function listaSiteInteracao() {
   const tabelaListaSites = document.getElementById('tabelaListaSites')
 
   const listaSiteSelecionado = document.getElementById('listaSiteSelecionado')
-  listaSiteSelecionado.appendChild(document.createElement('br'))
+  // listaSiteSelecionado.appendChild(document.createElement('br'))
 
   listaSites.forEach(element => {
     const tr = document.createElement('tr')

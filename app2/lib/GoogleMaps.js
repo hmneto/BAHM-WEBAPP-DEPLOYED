@@ -37,8 +37,8 @@ function getLatLngMaps(lat, lng) {
   return new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 }
 
-function createMark(position, icon) {
-  return new google.maps.Marker({ position, icon });
+function createMark(position, icon, id) {
+  return new google.maps.Marker({ position, icon,  id: 'marker'+ id });
 }
 
 function getZoomMap() {

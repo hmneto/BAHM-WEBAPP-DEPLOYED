@@ -23,5 +23,5 @@ async function pontoEdita() {
         PaginaId: document.getElementById("idPagina").value
     }
 
-    await httpPut("/Ponto/Edita", ponto).then(x => openView("mapa"));
+    await httpPost("/Ponto/Edita", ponto).then(x => openView("mapa"));
 }

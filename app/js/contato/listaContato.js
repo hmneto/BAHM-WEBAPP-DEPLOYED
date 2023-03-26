@@ -3,7 +3,7 @@ async function listaContatoInteracao() {
   const tabelaListaContatos = document.getElementById('tabelaListaContatos')
 
   const listaContatoSelecionado = document.getElementById('listaContatoSelecionado')
-  listaContatoSelecionado.appendChild(document.createElement('br'))
+  // listaContatoSelecionado.appendChild(document.createElement('br'))
 
   listaContatos.forEach(element => {
     const tr = document.createElement('tr')
