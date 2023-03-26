@@ -1,4 +1,4 @@
-class CenterMap {
+class CenterMap{
 
   _latMax;
   _latMin;
@@ -95,26 +95,18 @@ function setPositionsInInputs(lat, lng, zoom) {
 function mountPointsInTheMap(list) {
   for (let index = 0; index < list.length; index++) {
     const element = list[index];
-    
+    let point;
+    point = createMark(
+      getLatLngMaps(element.latitudePonto, element.longitudePonto),
+      element.icone.linkIcone.indexOf("http") === -1
+        ? linkApi + "/imagem/Imagem?i=" + element.icone.linkIcone
+        : element.icone.linkIcone
+    );
 
-    let point = createMark(
-      getLatLngMaps(element.latitudePonto, element.longitudePonto), element.icone.linkIcone.indexOf("http") === -1 ? linkApi + "/imagem/Imagem?i=" + element.icone.linkIcone
-        : element.icone.linkIcone,
-        element.idPonto
-    )
-
-
-    
-    // point.id = element.id
     point.setMap(mapiii);
+
     let infoWindow = new google.maps.InfoWindow({});
     point.addListener("click", () => {
-
-
-
-    const markerId = point.get('id');
-    console.log(markerId)
-
       dadosPonto = element
       infoWindow.close();
       infoWindow = new google.maps.InfoWindow({
@@ -131,7 +123,7 @@ function mountPointsInTheMap(list) {
       if (element.tipo_icone !== "KM") text.style.cursor = "pointer";
       text.addEventListener("click", async function () {
         if (element.icone.acaoIcone === "NÃO") return;
-        openView("paginaMapa", false, element.paginaId)
+        openView("paginaMapa", false,element.paginaId)
       });
 
       infoWindow.setContent(div);
