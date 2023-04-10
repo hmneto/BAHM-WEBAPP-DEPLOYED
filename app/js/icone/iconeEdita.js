@@ -14,7 +14,7 @@ async function iconeEdita() {
     const icone = {
         "idIcone": document.getElementById('idIcone').value,
         "nomeIcone": document.getElementById('nomeIcone').value,
-        "linkIcone": document.getElementById('nomeIcone').value,
+        "linkIcone": document.getElementById('linkIcone').value,
         "acaoIcone": document.getElementById('acaoIcone').value
 
     }

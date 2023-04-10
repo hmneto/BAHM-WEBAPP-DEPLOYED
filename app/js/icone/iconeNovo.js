@@ -6,7 +6,7 @@ async function iconeSalvaInteracao(){
 async function iconeNovo() {
     const icone = {
         "nomeIcone": document.getElementById('nomeIcone').value,
-        "linkIcone": document.getElementById('nomeIcone').value,
+        "linkIcone": document.getElementById('linkIcone').value,
         "acaoIcone": document.getElementById('acaoIcone').value
     }
 
