@@ -121,12 +121,9 @@ async function paginaMapaInteracao(id) {
 
   montaPagina2(FOTO_MAPA)
 
-  montaPagina(LEI)
-
   montaPagina(WIKIPEDIA)
 
-
-
+  montaPagina(LEI)
 }
 
 
