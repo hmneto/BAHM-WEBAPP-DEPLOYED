@@ -7,56 +7,97 @@
       background-color: #555;
     }
   </style>
-  <link rel="stylesheet" href="index.css?v=44" />
+
+
+
+<style>
+  #loader {
+    width: 100%;
+    margin-top: 13%;
+    margin-left: 40%;
+    border: 20px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-bottom: 16px solid blue;
+    width: 220px;
+    height: 220px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+
+
+  <link rel="stylesheet" href="index.css?v=45" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js?v=44"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js?v=45"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrmkwmtw2vJnT-ywBVfiEeKE4kKjAIZgI" defer></script>
-  <script src="lib/GoogleMaps.js?v=44" defer></script>
+  <script src="lib/GoogleMaps.js?v=45" defer></script>
   <script src="js/mapa.js" defer></script>
 
-  <script src="js/ponto/pontoNovo.js?v=44" defer></script>
-  <script src="js/ponto/pontoEdita.js?v=44" defer></script>
-  <script src="js/ponto/pontoLatLng.js?v=44" defer></script>
+  <script src="js/ponto/pontoNovo.js?v=45" defer></script>
+  <script src="js/ponto/pontoEdita.js?v=45" defer></script>
+  <script src="js/ponto/pontoLatLng.js?v=45" defer></script>
 
-  <script src="js/pagina/listaPagina.js?v=44" defer></script>
-  <script src="js/pagina/paginaNovo.js?v=44" defer></script>
-  <script src="js/pagina/paginaEdita.js?v=44" defer></script>
-
-
-  <script src="js/concessionaria/listaConcessionaria.js?v=44" defer></script>
-  <script src="js/concessionaria/concessionariaNovo.js?v=44" defer></script>
-  <script src="js/concessionaria/concessionariaEdita.js?v=44" defer></script>
-
-  <script src="js/cliente/listaCliente.js?v=44" defer></script>
-  <script src="js/cliente/clienteNovo.js?v=44" defer></script>
-  <script src="js/cliente/clienteEdita.js?v=44" defer></script>
+  <script src="js/pagina/listaPagina.js?v=45" defer></script>
+  <script src="js/pagina/paginaNovo.js?v=45" defer></script>
+  <script src="js/pagina/paginaEdita.js?v=45" defer></script>
 
 
-  <script src="js/contato/listaContato.js?v=44" defer></script>
-  <script src="js/contato/contatoNovo.js?v=44" defer></script>
-  <script src="js/contato/contatoEdita.js?v=44" defer></script>
+  <script src="js/concessionaria/listaConcessionaria.js?v=45" defer></script>
+  <script src="js/concessionaria/concessionariaNovo.js?v=45" defer></script>
+  <script src="js/concessionaria/concessionariaEdita.js?v=45" defer></script>
 
-  <script src="js/icone/listaIcone.js?v=44" defer></script>
-  <script src="js/icone/iconeNovo.js?v=44" defer></script>
-  <script src="js/icone/iconeEdita.js?v=44" defer></script>
-
-  <script src="js/site/listaSite.js?v=44" defer></script>
-  <script src="js/site/siteNovo.js?v=44" defer></script>
-  <script src="js/site/siteEdita.js?v=44" defer></script>
+  <script src="js/cliente/listaCliente.js?v=45" defer></script>
+  <script src="js/cliente/clienteNovo.js?v=45" defer></script>
+  <script src="js/cliente/clienteEdita.js?v=45" defer></script>
 
 
-  <script src="js/imagem/listaImagem.js?v=44" defer></script>
+  <script src="js/contato/listaContato.js?v=45" defer></script>
+  <script src="js/contato/contatoNovo.js?v=45" defer></script>
+  <script src="js/contato/contatoEdita.js?v=45" defer></script>
 
-  <script src="js/login.js?v=44" defer></script>
-  <script src="js/paginaMapa.js?v=44" defer></script>
-  <script src="js/http.js?v=44" defer></script>
-  <script src="js/buscarTable.js?v=44" defer></script>
-  <script src="js/carregaSelect.js?v=44" defer></script>
-  <script src="index.js?v=44"></script>
+  <script src="js/icone/listaIcone.js?v=45" defer></script>
+  <script src="js/icone/iconeNovo.js?v=45" defer></script>
+  <script src="js/icone/iconeEdita.js?v=45" defer></script>
+
+  <script src="js/site/listaSite.js?v=45" defer></script>
+  <script src="js/site/siteNovo.js?v=45" defer></script>
+  <script src="js/site/siteEdita.js?v=45" defer></script>
+
+
+  <script src="js/imagem/listaImagem.js?v=45" defer></script>
+
+  <script src="js/login.js?v=45" defer></script>
+  <script src="js/paginaMapa.js?v=45" defer></script>
+  <script src="js/http.js?v=45" defer></script>
+  <script src="js/buscarTable.js?v=45" defer></script>
+  <script src="js/carregaSelect.js?v=45" defer></script>
+
   <meta charset="UTF-8" />
   <title>BAHM</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -94,6 +135,8 @@
 </head>
 
 <body>
+  <div id="loader" style="display: none;"></div>
+
   <div id="content"></div>
 
 
@@ -119,7 +162,7 @@
 
 </div>
 
-
+<script src="index.js?v=45"></script>
 </body>
 
 </html>

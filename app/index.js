@@ -6,7 +6,7 @@ const linkApi = "https://bahm.fly.dev"
 let dadosPonto = null
 
 function openViewTable(page, edita, id) {
-  fetch(`pages44/${page}.html`)
+  fetch(`pages45/${page}.html`)
     .then(function (response) {
       return response.text();
     })
@@ -18,17 +18,34 @@ function openViewTable(page, edita, id) {
 
 
 function openView(page, edita, id) {
+
+  
+  document.getElementById('content').style.display = 'none'
+
+  document.getElementById('loader').style.display = 'block'
+
+
+
+
   if(page!='ponto'){
     dadosPonto = null
     latLgnii = null
   }
-  fetch(`pages44/${page}.html`)
+  fetch(`pages45/${page}.html`)
     .then(function (response) {
       return response.text();
     })
     .then(function (data) {
       document.getElementById("content").innerHTML = data;
       addInteraction(page, edita, id);
+    }).then(function(){
+      setTimeout(function(){
+        document.getElementById('loader').style.display = 'none'
+        document.getElementById('content').style.display = 'block'
+      },1000)
+
+
+
     })
     .catch((error) => {
     });
@@ -130,3 +147,5 @@ if(sessionStorage.getItem("loginStore")){
 
 
 
+document.getElementById('loader').style.display = 'none'
+document.getElementById('content').style.display = 'block'
