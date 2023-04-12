@@ -6,7 +6,7 @@ const linkApi = "https://bahm.fly.dev"
 let dadosPonto = null
 
 function openViewTable(page, edita, id) {
-  fetch(`pages45/${page}.html`)
+  fetch(`pages46/${page}.html`)
     .then(function (response) {
       return response.text();
     })
@@ -31,7 +31,7 @@ function openView(page, edita, id) {
     dadosPonto = null
     latLgnii = null
   }
-  fetch(`pages45/${page}.html`)
+  fetch(`pages46/${page}.html`)
     .then(function (response) {
       return response.text();
     })
