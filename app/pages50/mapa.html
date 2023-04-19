@@ -1,4 +1,19 @@
-<input maxlength="10" size="8" className="item" type="text" id="lat" placeholder="latitude" style="
+<select  id="tipoPosicaoSatelite" style="
+font-size: 20px;
+cursor: pointer;
+position: absolute;
+z-index: 10;
+margin-top: 80px;
+margin-left: 10px;
+background-color: white;
+padding: 2;
+">
+  <option selected>GRAU DECIMAL</option>
+  <option>GRAU MINUTO SEGUNDO</option>
+  <option>GRAU MINUTO</option> 
+</select>
+
+<input maxlength="11" size="11" className="item" type="text" id="latInput" placeholder="latitude" style="
     font-size: 20px;
     cursor: pointer;
     position: absolute;
@@ -9,7 +24,7 @@
     padding: 2;
   " />
 
-<input maxlength="10" size="8" className="item" type="text" id="long" placeholder="longitude" style="
+<input maxlength="11" size="11" className="item" type="text" id="longInput" placeholder="longitude" style="
     font-size: 20px;
     cursor: pointer;
     position: absolute;

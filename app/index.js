@@ -6,7 +6,7 @@ const linkApi = "https://bahm.fly.dev"
 let dadosPonto = null
 
 function openViewTable(page, edita, id) {
-  fetch(`pages48/${page}.html`)
+  fetch(`pages50/${page}.html`)
     .then(function (response) {
       return response.text();
     })
@@ -29,16 +29,13 @@ function closeLoad(){
 }
 
 function openView(page, edita, id) {
-
- 
   openLoad()
-
 
   if(page!='ponto'){
     dadosPonto = null
     latLgnii = null
   }
-  fetch(`pages48/${page}.html`)
+  fetch(`pages50/${page}.html`)
     .then(function (response) {
       return response.text();
     })
@@ -49,9 +46,6 @@ function openView(page, edita, id) {
       setTimeout(function(){
         closeLoad()
       },1000)
-
-
-
     })
     .catch((error) => {
     });
@@ -137,20 +131,11 @@ function addInteraction(content, edita, id) {
     loginInteracao();
   }
 }
-// const aaa = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjQiLCJyb2xlIjoiQURNSU5JU1RSQURPUiIsIm5iZiI6MTY3NTc5MDYxNCwiZXhwIjoxNjc1ODQ0NjE0LCJpYXQiOjE2NzU3OTA2MTR9.gatazrYPVy6uqWGWInA0v-W7laEJLy7sGB5uo_vEscc"
-
-
-// sessionStorage.setItem("loginStore", aaa)
-
-// openView("mapa");
-
 
 if(sessionStorage.getItem("loginStore")){
   openView("mapa");
 }else{
   openView("login");
 }
-
-
 
 closeLoad()
