@@ -1,12 +1,12 @@
-// const linkApi = "https://localhost:7143"
+const linkApi = "https://localhost:7143"
 // const linkApi = "http://0.0.0.0"
 // const linkApi = "https://localhost:5001"
-const linkApi = "https://bahm.fly.dev"
+// const linkApi = "https://bahm.fly.dev"
 
 let dadosPonto = null
 
 function openViewTable(page, edita, id) {
-  fetch(`pages50/${page}.html`)
+  fetch(`pages51/${page}.html`)
     .then(function (response) {
       return response.text();
     })
@@ -35,7 +35,7 @@ function openView(page, edita, id) {
     dadosPonto = null
     latLgnii = null
   }
-  fetch(`pages50/${page}.html`)
+  fetch(`pages51/${page}.html`)
     .then(function (response) {
       return response.text();
     })
