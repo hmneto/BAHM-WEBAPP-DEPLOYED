@@ -111,6 +111,10 @@ function setPositionsInInputs(lat, lng, zoom) {
 
 
 function mountPointsInTheMap(list) {
+  for (let index = 0; index < pontosMaps.length; index++) {
+    pontosMaps[index].setMap(null)
+  }
+
   for (let index = 0; index < list.length; index++) {
     const element = list[index];
     
@@ -121,6 +125,7 @@ function mountPointsInTheMap(list) {
         element.idPonto
     )
 
+    pontosMaps.push(point)
 
     
     // point.id = element.id
@@ -392,3 +397,25 @@ function convertDDtoDMM(dd, type) {
 // Exemplo de uso:
 // console.log(convertDDtoDMM(51.507222, "lat")); // Saída: "51 30.433° N"
 // console.log(convertDDtoDMM(-0.127647, "lon")); // Saída: "0 7.659° W"
+
+
+
+// for (let index = 0; index < pontosMaps.length; index++) {
+//   console.log(pontosMaps[index].setMap(null))
+// }
+
+
+
+// for (let index = 0; index < pontosMaps.length; index++) {
+//   if(index == 0){
+//       pontosMaps[index].setMap(null)
+//       //pontosMaps.pop()
+//   }
+// }
+
+
+
+
+// for (let index = 0; index < pontosMaps.length; index++) {
+//   console.log(pontosMaps[index])
+// }
