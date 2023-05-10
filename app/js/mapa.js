@@ -185,16 +185,11 @@ function setUpInitalStorage() {
 
 
 function fitMap() {
-  try{
   const sizeMapInnerHeight = window.innerHeight;
   const sizeMapInnerWidth = window.innerWidth;
   document.getElementById("googleMap").style.height =
     sizeMapInnerHeight + "px";
   document.getElementById("googleMap").style.width = sizeMapInnerWidth + "px";
-  }catch(e){
-    console.log(e)
-  }
-
 }
 
 
