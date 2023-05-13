@@ -277,8 +277,7 @@ async function MontaDados(centerMap) {
 }
 
 
-
-function mapaInteracao() {
+function initMap(){
   const centerMap = new CenterMap()
   setUpInitalStorage();
   myMap();
@@ -294,6 +293,18 @@ function mapaInteracao() {
   eventFitMap(function () {
     fitMap();
   });
+}
+
+
+
+function mapaInteracao() {
+  httpGet('/ApiMaps/Google').then(x=>{
+    const scriptMaps = document.createElement('script')
+    scriptMaps.src=`https://maps.googleapis.com/maps/api/js?key=${x.apiMaps}&callback=initMap`
+    document.body.appendChild(scriptMaps)
+  })
+
+
 }
 
 
