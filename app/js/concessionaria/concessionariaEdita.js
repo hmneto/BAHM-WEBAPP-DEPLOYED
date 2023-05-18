@@ -16,6 +16,10 @@ async function concessionariaEdita() {
     }
 
     await httpPut("/Concessionaria/Edita", concessionaria).then(x =>{
+        // document.getElementById('fechaModal').click()
+        alert(document.getElementById('idPagina').value)
+        //openView('pagina',false, document.getElementById('idPagina').value)
         openViewTable("listaConcessionaria")
+
     } );
 }
