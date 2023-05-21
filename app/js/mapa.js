@@ -111,6 +111,10 @@ function setPositionsInInputs(lat, lng, zoom) {
 
 
 function mountPointsInTheMap(list) {
+  for (let index = 0; index < pontosMaps.length; index++) {
+    pontosMaps[index].setMap(null)
+  }
+
   for (let index = 0; index < list.length; index++) {
     const element = list[index];
     
@@ -121,6 +125,7 @@ function mountPointsInTheMap(list) {
         element.idPonto
     )
 
+    pontosMaps.push(point)
 
     
     // point.id = element.id
@@ -193,7 +198,7 @@ function goToPosition() {
   let lat, lng
 
   if(document.getElementById('tipoPosicaoSatelite').value  == 'GRAU DECIMAL'){
-    lat = convertDMStoDD(document.getElementById("latInput").value, true)
+    lat = document.getElementById("latInput").value
   }else if(document.getElementById('tipoPosicaoSatelite').value  == 'GRAU MINUTO SEGUNDO'){
     lat = convertDMStoDD(document.getElementById("latInput").value, true)
   }else if(document.getElementById('tipoPosicaoSatelite').value  == 'GRAU MINUTO'){
@@ -272,8 +277,7 @@ async function MontaDados(centerMap) {
 }
 
 
-
-function mapaInteracao() {
+function initMap(){
   const centerMap = new CenterMap()
   setUpInitalStorage();
   myMap();
@@ -289,6 +293,18 @@ function mapaInteracao() {
   eventFitMap(function () {
     fitMap();
   });
+}
+
+
+
+function mapaInteracao() {
+  httpGet('/ApiMaps/Google').then(x=>{
+      console.log('api google maps')
+      const scriptMaps = document.createElement('script')
+      scriptMaps.src=`https://maps.googleapis.com/maps/api/js?key=${x.apiMaps}&callback=initMap`
+      document.getElementById('content').appendChild(scriptMaps)
+  
+  })
 }
 
 
@@ -392,3 +408,25 @@ function convertDDtoDMM(dd, type) {
 // Exemplo de uso:
 // console.log(convertDDtoDMM(51.507222, "lat")); // Saída: "51 30.433° N"
 // console.log(convertDDtoDMM(-0.127647, "lon")); // Saída: "0 7.659° W"
+
+
+
+// for (let index = 0; index < pontosMaps.length; index++) {
+//   console.log(pontosMaps[index].setMap(null))
+// }
+
+
+
+// for (let index = 0; index < pontosMaps.length; index++) {
+//   if(index == 0){
+//       pontosMaps[index].setMap(null)
+//       //pontosMaps.pop()
+//   }
+// }
+
+
+
+
+// for (let index = 0; index < pontosMaps.length; index++) {
+//   console.log(pontosMaps[index])
+// }
