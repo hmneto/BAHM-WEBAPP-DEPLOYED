@@ -38,7 +38,7 @@ function getLatLngMaps(lat, lng) {
 }
 
 function createMark(position, icon, id) {
-  return new google.maps.Marker({ position, icon,  id: 'marker'+ id });
+  return new google.maps.Marker({ position, icon, id: 'marker' + id });
 }
 
 function getZoomMap() {
@@ -74,10 +74,15 @@ function eventClickMap() {
 
     const { lat, lng } = latLgnii;
     point.setMap(null);
-    point = createMark(
-      getLatLngMaps(lat, lng)
-    );
-    point.setMap(mapiii);
+
+    if(sessionStorage.getItem("loginProfile") != "admin") {
+      point = createMark(
+        getLatLngMaps(lat, lng)
+      );
+      point.setMap(mapiii);
+    }
+
+
 
     let infoWindow = new google.maps.InfoWindow({});
     point.addListener("click", () => {
@@ -101,6 +106,16 @@ function getLatLongZoom() {
 
 function goToLatLngMap(lat, lng, zoom) {
   const latLng = getLatLngMaps(lat, lng);
+
+  if(window.pointSearch != undefined)
+  window.pointSearch.setMap(null);
+
+  window.pointSearch = createMark(
+    getLatLngMaps(lat, lng), './images/TRUCK.png'
+  );
+  window.pointSearch.setMap(mapiii);
+
+
 
   mapiii.panTo(latLng);
   mapiii.setZoom(Number(zoom));
