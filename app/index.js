@@ -3,12 +3,15 @@
 // const linkApi = "https://localhost:5001"
 const linkApi = "https://bahm.fly.dev"
 // const linkApi = "http://localhost"
+
+window.pontos = []
+
 let dadosPonto = null
 
 const pontosMaps = []
 
 function openViewTable(page, edita, id) {
-  fetch(`pages59/${page}.html`)
+  fetch(`pages60/${page}.html`)
     .then(function (response) {
       return response.text();
     })
@@ -37,7 +40,7 @@ function openView(page, edita, id) {
     dadosPonto = null
     latLgnii = null
   }
-  fetch(`pages59/${page}.html`)
+  fetch(`pages60/${page}.html`)
     .then(function (response) {
       return response.text();
     })
