@@ -1,49 +1,3 @@
-class CenterMap {
-
-  _latMax;
-  _latMin;
-  _longMax;
-  _longMin;
-
-  centerMap(zoom, ditancia) {
-
-    let latMax;
-    let latMin;
-    let longMax;
-    let longMin;
-
-    let retorno_dados;
-
-    if (getZoomMap() >= zoom) {
-      latMax = Math.round(Number(getCenterLatMap())- Math.abs(ditancia));
-      latMin = Math.ceil(Number(getCenterLatMap()) + Math.abs(ditancia));
-      longMax = Math.round(Number(getCenterLngMap()) - Math.abs(ditancia));
-      longMin = Math.ceil(Number(getCenterLngMap())+ Math.abs(ditancia));
-
-      retorno_dados =
-        this._latMax !== latMax &&
-        this._latMin !== latMin &&
-        this._longMax !== longMax &&
-        this._longMin !== longMin;
-      if (retorno_dados) {
-
-        this._latMax = latMax;
-        this._latMin = latMin;
-        this._longMax = longMax;
-        this._longMin = longMin;
-      }
-    }
-
-    if (retorno_dados)
-      return {
-        lat: getCenterLatMap(),
-        lng: getCenterLngMap(),
-      };
-    else return null;
-  }
-}
-
-
 function getUrlParams() {
   const latLongZoom = new getUrlVal(["lat", "long", "zooml"]);
   return latLongZoom.get_list();
@@ -113,39 +67,31 @@ function setPositionsInInputs(lat, lng, zoom) {
 
 function mountPointsInTheMap(list, centro, zoom) {
 
-  // if(window.pontos[`${Math.round(centro.lat)}`+`${Math.round(centro.lng)}`+`${zoom}`] != undefined)
-  console.log(window.pontos[`${Math.round(centro.lat)}`+`${Math.round(centro.lng)}`+`${zoom}`] )
-
-
-  window.pontos[`${Math.round(centro.lat)}`+`${Math.round(centro.lng)}`+`${zoom}`] = list
-
-  // for (let index = 0; index < pontosMaps.length; index++) {
-  //   pontosMaps[index].setMap(null)
-  // }
-
   for (let index = 0; index < list.length; index++) {
     const element = list[index];
 
+    const linkFormatadoIcone = element.icone.linkIcone.indexOf("http") === -1 ?
+      linkApi + "/imagem/Imagem?i=" + element.icone.linkIcone :
+      element.icone.linkIcone
 
     let point = createMark(
-      getLatLngMaps(element.latitudePonto, element.longitudePonto), element.icone.linkIcone.indexOf("http") === -1 ? linkApi + "/imagem/Imagem?i=" + element.icone.linkIcone
-      : element.icone.linkIcone,
+      getLatLngMaps(element.latitudePonto, element.longitudePonto),
+      linkFormatadoIcone,
       element.idPonto
     )
 
-    pontosMaps.push(point)
 
+    if (pontosMaps.filter((ponto) => ponto.latitudePonto == element.latitudePonto && ponto.longitudePonto === element.longitudePonto).length < 1)
+      pontosMaps.push({
+        point,
+        latitudePonto: element.latitudePonto,
+        longitudePonto: element.longitudePonto
+      })
 
-    // point.id = element.id
     point.setMap(mapiii);
     let infoWindow = new google.maps.InfoWindow({});
     point.addListener("click", () => {
-
-
-
       const markerId = point.get('id');
-      //console.log(markerId)
-
       dadosPonto = element
       infoWindow.close();
       infoWindow = new google.maps.InfoWindow({
@@ -169,6 +115,8 @@ function mountPointsInTheMap(list, centro, zoom) {
       infoWindow.open(this.map, point);
     });
   }
+
+
 }
 
 
@@ -243,32 +191,6 @@ function setLinkLatLng() {
     document.getElementById("link").value = link;
 }
 
-
-class getUrlVal {
-  lista = null;
-  constructor(parametros_url) {
-    let lista_parametros_url_resolvidas = {};
-    const get = (name) => {
-      if (
-        (name = new RegExp("[?&]" + encodeURIComponent(name) + "=([^&]*)").exec(
-          window.location.search
-        ))
-      )
-        return decodeURIComponent(name[1]);
-    };
-
-    parametros_url.forEach((element) => {
-      lista_parametros_url_resolvidas[element] = get(element);
-    });
-    this.lista = lista_parametros_url_resolvidas;
-  }
-
-  get_list() {
-    return this.lista;
-  }
-}
-
-
 async function MontaDados(centerMap) {
   const { lat, lng, zoom } = getLatLongZoom();
   savePositionsInStorage(lat, lng, zoom);
@@ -282,7 +204,7 @@ async function MontaDados(centerMap) {
     ObservacaoPonto: "pontos"
   }).then(x => x.json());
   if (pontos == undefined) return
-  mountPointsInTheMap(pontos, centro,zoom);
+  mountPointsInTheMap(pontos, centro, zoom);
 }
 
 
@@ -324,126 +246,3 @@ function mapaInteracao() {
   })
 }
 
-
-
-// grau minuto segundo x grau decimal
-function convertDMStoDD(dms) {
-  var parts = dms.split(/[^\d\w.]+/); // Separa a string em partes numéricas
-  var deg = parseInt(parts[0]); // Obtém os graus
-  var min = parseInt(parts[1]); // Obtém os minutos
-  var sec = parseFloat(parts[2]); // Obtém os segundos (como um número decimal)
-  var sign = /[swSW]/.test(dms) ? -1 : 1; // Define o sinal com base no hemisfério
-  return sign * (deg + min / 60 + sec / 3600); // Calcula a coordenada em graus decimais
-}
-
-// Exemplo de uso:
-// console.log(convertDMStoDD("51° 30' 26.00\" N")); // Saída: 51.507222222222225
-// console.log(convertDMStoDD("0° 7' 39.53\" W")); // Saída: -0.12764722222222222
-
-
-
-
-
-// grau decimal x grau minuto segundo
-function convertDDtoDMS(dd, isLatitude) {
-  var sign = dd < 0 ? (isLatitude ? "S" : "W") : (isLatitude ? "N" : "E"); // Determina o sinal a ser usado
-  var absDd = Math.abs(dd); // Remove o sinal para trabalhar com valores positivos
-  var deg = Math.floor(absDd);
-  var min = Math.floor((absDd - deg) * 60);
-  var sec = ((absDd - deg - min / 60) * 3600).toFixed(2);
-  return deg + "°" + min + "'" + sec + '"' + sign; // Concatena o sinal no final da string
-}
-
-// // Exemplo de uso:
-// console.log(convertDDtoDMS(51.507222, true)); // Saída: "51° 30' 26.00" N"
-// console.log(convertDDtoDMS(-0.127647, false)); // Saída: "0° 7' 39.53" W"
-
-
-
-
-
-
-
-
-
-// grau minuto x grau decimal
-function convertDMtoDD(dm) {
-  var regex = /(\d+)°(\d+\.\d+)'([WENS])/i; // Expressão regular para extrair graus, minutos e direção
-  var matches = dm.match(regex);
-
-  var degrees = parseInt(matches[1]); // Obtém os graus inteiros
-  var minutes = parseFloat(matches[2]); // Obtém os minutos decimais
-  var dir = matches[3]; // Obtém a direção (leste, oeste, norte, sul)
-
-  var dd = degrees + (minutes / 60); // Calcula o valor em graus decimais
-
-  if (dir === "W" || dir === "S") {
-    dd *= -1; // Ajusta o sinal para oeste e sul
-  }
-
-  return dd;
-}
-
-// Exemplo de uso:
-//23° 54.35273’ S , 46° 8.9098166666667’ W
-//console.log(convertDMtoDD("51°30.433'N")); // Saída: 51.507216666666665
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// grau decimal x grau minuto segundo
-function convertDDtoDMM(dd, type) {
-  //var sign = dd < 0 ? "-" : ""; // Determina o sinal a ser usado
-  var absDd = Math.abs(dd); // Remove o sinal para trabalhar com valores positivos
-  var deg = Math.floor(absDd); // Obtém os graus
-  var min = (absDd - deg) * 60; // Converte a parte decimal em minutos
-  var formattedMin = min.toFixed(3); // Formata os minutos com 3 casas decimais
-  var direction = "";
-
-  // Verifica se é uma latitude ou longitude e determina a direção correta
-  if (type === "lat") {
-    direction = dd >= 0 ? "N" : "S";
-  } else if (type === "lon") {
-    direction = dd >= 0 ? "E" : "W";
-  }
-
-  return deg + "°" + formattedMin + "'" + direction; // Concatena a string com o sinal, os graus e minutos formatados e a direção
-}
-
-// Exemplo de uso:
-// console.log(convertDDtoDMM(51.507222, "lat")); // Saída: "51 30.433° N"
-// console.log(convertDDtoDMM(-0.127647, "lon")); // Saída: "0 7.659° W"
-
-
-
-// for (let index = 0; index < pontosMaps.length; index++) {
-//   console.log(pontosMaps[index].setMap(null))
-// }
-
-
-
-// for (let index = 0; index < pontosMaps.length; index++) {
-//   if(index == 0){
-//       pontosMaps[index].setMap(null)
-//       //pontosMaps.pop()
-//   }
-// }
-
-
-
-
-// for (let index = 0; index < pontosMaps.length; index++) {
-//   console.log(pontosMaps[index])
-// }
