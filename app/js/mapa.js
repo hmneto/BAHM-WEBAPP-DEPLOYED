@@ -109,7 +109,7 @@ function mountPointsInTheMap(list, centro, zoom) {
       text.addEventListener("click", async function () {
         if (element.icone.acaoIcone === "NÃO") return;
 
-        httpGet('/ApiMaps/IconePaginaZero?PontoId='+element.idPonto).then(y => { console.log(y) })
+        httpGet('/ApiMaps/IconePaginaZero?PontoId=' + element.idPonto).then(y => { console.log(y) })
 
 
         openView("paginaMapa", false, element.paginaId)
@@ -147,9 +147,13 @@ function setUpInitalStorage() {
 function fitMap() {
   const sizeMapInnerHeight = window.innerHeight;
   const sizeMapInnerWidth = window.innerWidth;
-  document.getElementById("googleMap").style.height =
-    sizeMapInnerHeight + "px";
-  document.getElementById("googleMap").style.width = sizeMapInnerWidth + "px";
+  try {
+    document.getElementById("googleMap").style.height =
+      sizeMapInnerHeight + "px";
+    document.getElementById("googleMap").style.width = sizeMapInnerWidth + "px";
+  } catch (error) {
+    console.log('mapa não carregado')
+  }
 }
 
 

@@ -27,7 +27,7 @@ async function paginaMapaInteracao(id) {
   }
 
   const pagina = await httpGet('/pagina/Pagina?PaginaId=' + id)
-  console.log(pagina)
+  // console.log(pagina)
 
   const {
     listContatoDto,

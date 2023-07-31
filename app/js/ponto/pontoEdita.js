@@ -1,8 +1,19 @@
-async function pontoEditaInteracao() {
+async function pontoEditaInteracao(id) {
     document.getElementById('salvar').hidden = true
     document.getElementById('editar').hidden = false
-    const ponto = await httpGet("/Ponto/Detalhes?id=" + dadosPonto.idPonto);
-    fillInputsLatLng();
+
+    let ponto
+    if (!id) {
+        ponto = await httpGet("/Ponto/Detalhes?id=" + dadosPonto.idPonto);
+        fillInputsLatLng();
+    }
+    else{
+        ponto = await httpGet("/Ponto/Detalhes?id=" + id);
+        document.getElementById('latitude').value = ponto.latitudePonto.toFixed(6)
+        document.getElementById('longitude').value = ponto.longitudePonto.toFixed(6)
+    }
+
+
 
     document.getElementById('nomePonto').value = ponto.nomePonto
     document.getElementById('idPonto').value = ponto.idPonto
@@ -10,6 +21,8 @@ async function pontoEditaInteracao() {
     document.getElementById('idPagina').value = ponto.pagina.idPagina
     document.getElementById('icone').value = ponto.icone.nomeIcone
     document.getElementById('idIcone').value = ponto.icone.idIcone
+    document.getElementById('observacaoPonto').value = ponto.observacaoPonto
+    
 
 }
 
@@ -20,7 +33,9 @@ async function pontoEdita() {
         LatitudePonto: document.getElementById('latitude').value,
         LongitudePonto: document.getElementById('longitude').value,
         IconeId: document.getElementById("idIcone").value,
-        PaginaId: document.getElementById("idPagina").value
+        PaginaId: document.getElementById("idPagina").value,
+        ObservacaoPonto: document.getElementById('observacaoPonto').value 
+
     }
 
     await httpPut("/Ponto/Edita", ponto).then(x => openView("mapa"));

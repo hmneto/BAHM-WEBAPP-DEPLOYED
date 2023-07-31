@@ -50,6 +50,23 @@ function buttonPaginaExcluirDOM(element2, title) {
 }
 
 
+function buttonAcessarPontoDOM(element2, title) {
+
+  const buttonPaginaExcluir = document.createElement('button')
+  buttonPaginaExcluir.innerHTML = "PONTO"
+  buttonPaginaExcluir.className = "btn btn-danger form-control"
+  buttonPaginaExcluir.addEventListener('click', function () {
+    openView('ponto',true, element2)
+    // document.getElementById(title + '-' + element2).remove()
+  })
+
+  return buttonPaginaExcluir
+}
+
+
+
+
+
 
 
 function buttonUpDOM(idElement, title, elementList, elementDom, listaInputElem) {
@@ -97,7 +114,7 @@ function buttonUpDOM(idElement, title, elementList, elementDom, listaInputElem) 
 }
 
 
-function buttonDownDOM(idElement, title, elementSelected,elementDom, listaInputElem) {
+function buttonDownDOM(idElement, title, elementSelected, elementDom, listaInputElem) {
   const buttonDown = document.createElement('button')
   buttonDown.innerHTML = "DOWN"
   buttonDown.id = title + "-" + idElement
@@ -112,14 +129,14 @@ function buttonDownDOM(idElement, title, elementSelected,elementDom, listaInputE
     const ListDOMElements = [];
     for (let index = 0; index < ListContatoDto.length; index++) {
       const elementas = ListContatoDto[index];
-      const currentElement = document.getElementById(elementDom+'-' + elementas.IdContato);
+      const currentElement = document.getElementById(elementDom + '-' + elementas.IdContato);
       ListDOMElements.push(currentElement);
     }
     let aux
     let indexDom
     for (let index = 0; index < ListDOMElements.length; index++) {
       const elementd = ListDOMElements[index];
-      if (!elementd.id.indexOf(elementDom+'-' + idElement)) {
+      if (!elementd.id.indexOf(elementDom + '-' + idElement)) {
         aux = ListDOMElements[index]
         indexDom = index
       }
@@ -157,13 +174,15 @@ function inputInfoContatoDOM(element) {
 
 
 function montaPaginaContato(element) {
+  const listaContatoSelecionado = document.getElementById('listaContatoSelecionado')
+
   const row = rowDOM("contato", element.idContato)
   const colMd10 = colMd10DOM()
   const formGroup = formGroupDOM()
   const colMd2 = buttonColMd2DOM()
   const buttonPaginaExcluir = buttonPaginaExcluirDOM(element.idContato, 'contato')
   const buttonUp = buttonUpDOM(element.idContato, "paginaContatoUp", "contatoSelecionadoClass", "contato", "listaContatoSelecionado")
-  const buttonDown = buttonDownDOM(element.idContato, "paginaContatoDown","contatoSelecionadoClass","contato", "listaContatoSelecionado")
+  const buttonDown = buttonDownDOM(element.idContato, "paginaContatoDown", "contatoSelecionadoClass", "contato", "listaContatoSelecionado")
   colMd2.appendChild(buttonUp)
   colMd2.appendChild(buttonDown)
   colMd2.appendChild(buttonPaginaExcluir)
@@ -183,6 +202,8 @@ function montaPaginaContato(element) {
 
 
 function montaPaginaSite(element) {
+  const listaSiteSelecionado = document.getElementById('listaSiteSelecionado')
+
   const row = rowDOM("site", element.idSite)
   const colMd10 = colMd10DOM()
   const formGroup = formGroupDOM()
@@ -190,7 +211,7 @@ function montaPaginaSite(element) {
   const buttonPaginaExcluir = buttonPaginaExcluirDOM(element.idSite, 'site')
 
   const buttonUp = buttonUpDOM(element.idSite, "paginaSiteUp", "siteSelecionadoClass", "site", "listaSiteSelecionado")
-  const buttonDown = buttonDownDOM(element.idSite, "paginaSiteDown","siteSelecionadoClass","site", "listaSiteSelecionado")
+  const buttonDown = buttonDownDOM(element.idSite, "paginaSiteDown", "siteSelecionadoClass", "site", "listaSiteSelecionado")
 
 
 
@@ -217,6 +238,45 @@ function montaPaginaSite(element) {
 }
 
 
+function montaPontosPagina(element) {
+  const listaPontoPagina = document.getElementById('listaPontoPagina')
+
+
+
+
+  const row = rowDOM("pontoPagina", element.idPonto)
+  const colMd10 = colMd10DOM()
+  const formGroup = formGroupDOM()
+  const colMd2 = buttonColMd2DOM()
+  const buttonPaginaExcluir = buttonAcessarPontoDOM(element.idPonto, 'ponto')
+
+
+  colMd2.appendChild(buttonPaginaExcluir)
+
+
+  const inputInfoSite = document.createElement('input')
+  const inputIdSite = document.createElement('input')
+  inputInfoSite.className = "form-control"
+  inputInfoSite.value = element.nomePonto
+  inputInfoSite.disabled = true
+  inputIdSite.value = element.idPonto
+  // inputIdSite.className = "siteSelecionadoClass"
+  inputIdSite.hidden = true
+  colMd10.appendChild(formGroup)
+  row.appendChild(colMd10)
+  row.appendChild(colMd2)
+
+
+  listaPontoPagina.appendChild(document.createElement('br'))
+
+  formGroup.appendChild(inputInfoSite)
+  formGroup.appendChild(inputIdSite)
+  listaPontoPagina.appendChild(row)
+
+
+}
+
+
 function carregaTipoSite() {
   const listaTipoSite = ["STREET", "FOTO", "WIKIMAPIA_SAT", "WIKIMAPIA_FRIO", "PM", "SITE", "ABCR", "CONCESSIONARIA", "FOTO_MAPA", "WIKIPEDIA", "LEI"]
   const tipoSite = document.getElementById('tipoSite')
@@ -240,7 +300,7 @@ function carregaAcao() {
   // console.log(listaAcao)
 
   for (i = 0; i < listaAcao.length; i++) {
-    console.log(listaAcao[i])
+    // console.log(listaAcao[i])
     const option = document.createElement('option')
     option.value = listaAcao[i]
     option.innerHTML = listaAcao[i]

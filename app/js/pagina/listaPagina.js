@@ -1,5 +1,6 @@
 async function listaPaginaInteracao(edita) {
   const listaPaginas = await httpGet("/Pagina/ListaTodos")
+  if(sessionStorage.getItem("buscaPagina")!= null) document.getElementById('buscaPagina').value = sessionStorage.getItem("buscaPagina")
   const tabelaListaPaginas = document.getElementById('tabelaListaPaginas')
   listaPaginas.forEach(element => {
     const tr = document.createElement('tr')

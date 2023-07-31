@@ -2,9 +2,6 @@ async function listaContatoInteracao() {
   const listaContatos = await httpGet("/Contato/ListaTodos")
   const tabelaListaContatos = document.getElementById('tabelaListaContatos')
 
-  const listaContatoSelecionado = document.getElementById('listaContatoSelecionado')
-  // listaContatoSelecionado.appendChild(document.createElement('br'))
-
   listaContatos.forEach(element => {
     const tr = document.createElement('tr')
     const td1 = document.createElement('td')

@@ -1,7 +1,12 @@
 async function paginaEditaInteracao(id) {
+
     document.getElementById('salvar').hidden = true
     document.getElementById('editar').hidden = false
     const detalhesPagina = await httpGet("/pagina/Pagina?PaginaId=" + id)
+
+
+    sessionStorage.setItem("buscaPagina", detalhesPagina.nomePagina)
+
 
     for (let i = 0; i < detalhesPagina.listContatoDto.length; i++) {
         montaPaginaContato(detalhesPagina.listContatoDto[i])
@@ -10,6 +15,10 @@ async function paginaEditaInteracao(id) {
     for (let i = 0; i < detalhesPagina.listSiteDto.length; i++) {
         montaPaginaSite(detalhesPagina.listSiteDto[i])
     }
+
+    for(let i = 0; i < detalhesPagina.listPontos.length; i++){
+        montaPontosPagina(detalhesPagina.listPontos[i])
+    }    
 
     document.getElementById('idPagina').value = detalhesPagina.idPagina
     document.getElementById('nomePagina').value = detalhesPagina.nomePagina
