@@ -11,7 +11,7 @@ let dadosPonto = null
 const pontosMaps = []
 
 function openViewTable(page, edita, id) {
-  fetch(`pages67/${page}.html`)
+  fetch(`pages68/${page}.html`)
     .then(function (response) {
       return response.text();
     })
@@ -40,7 +40,7 @@ function openView(page, edita, id) {
     dadosPonto = null
     latLgnii = null
   }
-  fetch(`pages67/${page}.html`)
+  fetch(`pages68/${page}.html`)
     .then(function (response) {
       return response.text();
     })

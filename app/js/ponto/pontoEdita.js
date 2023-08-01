@@ -36,7 +36,7 @@ function abrePagina(){
 }
 
 function abreMapa(){
-    console.log(document.getElementById('linkMapaPonto').value )
+    window.open(document.getElementById('linkMapaPonto').value, '_blank');
 }
 
 async function pontoEdita() {
