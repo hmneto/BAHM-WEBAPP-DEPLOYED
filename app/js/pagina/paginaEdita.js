@@ -51,14 +51,8 @@ async function paginaEdita() {
 
     }
 
-    await httpPut("/Pagina/Edita", pagina).then(x => {
+    await httpPut("/Pagina/Edita", pagina)
 
-        // if (x) {
-            openView("listaPagina", true)
-        // } else {
-        //     alert("erro")
-        // }
-    });
 }
 
 

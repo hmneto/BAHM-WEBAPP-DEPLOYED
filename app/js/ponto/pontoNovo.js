@@ -7,17 +7,11 @@ async function pontoNovo() {
         PaginaId: document.getElementById("idPagina").value
     }
 
-    await httpPost("/Ponto/Novo", ponto).then(x => {
-        if (x) {
-            openView("mapa");
-        } else {
-            alert("erro")
-        }
-    })
+    await httpPost("/Ponto/Novo", ponto)
 }
 
 
 
 async function pontoNovoInteracao() {
-    fillInputsLatLng();
+    // fillInputsLatLng();
 }

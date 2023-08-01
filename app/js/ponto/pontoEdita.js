@@ -22,8 +22,21 @@ async function pontoEditaInteracao(id) {
     document.getElementById('icone').value = ponto.icone.nomeIcone
     document.getElementById('idIcone').value = ponto.icone.idIcone
     document.getElementById('observacaoPonto').value = ponto.observacaoPonto
-    
 
+    document.getElementById('btnLinkPaginaPonto').value =  ponto.pagina.nomePagina
+
+    document.getElementById('linkPaginaPonto').value = ponto.pagina.idPagina
+
+    document.getElementById('linkMapaPonto').value  =`${window.location}?lat=${ponto.latitudePonto}&long=${ponto.longitudePonto}&zooml=20`
+}
+
+
+function abrePagina(){
+    openView('pagina',true, document.getElementById('linkPaginaPonto').value )
+}
+
+function abreMapa(){
+    console.log(document.getElementById('linkMapaPonto').value )
 }
 
 async function pontoEdita() {
@@ -38,5 +51,5 @@ async function pontoEdita() {
 
     }
 
-    await httpPut("/Ponto/Edita", ponto).then(x => openView("mapa"));
+    await httpPut("/Ponto/Edita", ponto)
 }

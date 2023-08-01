@@ -3,6 +3,10 @@
     <button onclick='openView("mapa");'>Mapa</button>
   </div>
 
+  <div class="row">
+    <button onclick='openView("listaPagina",true);'>Paginas</button>
+  </div>
+
   <input id="idPonto" type="text" hidden />
 
 
@@ -94,6 +98,31 @@
   </div>
 
 
+  <br/>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="observacaoPonto">Link Pagina ponto</label>
+        <input type="text" class="form-control" id="linkPaginaPonto" hidden />
+        <input type="button" class="btn btn-success form-control" id="btnLinkPaginaPonto" onclick="abrePagina()" />
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="observacaoPonto">Mapa ponto</label>
+        <input type="text" class="form-control" id="linkMapaPonto" hidden />
+        <input type="button" class="btn btn-warning form-control" onclick="abreMapa()" value="VER NO MAPA" />
+      </div>
+    </div>
+  </div>
 
 
 

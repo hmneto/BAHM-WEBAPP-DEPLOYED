@@ -58,6 +58,7 @@ function httpGet(link) {
       }
       
       else {
+        alert("SALVO")
         return x
       }
     });

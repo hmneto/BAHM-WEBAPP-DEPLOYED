@@ -24,11 +24,5 @@ async function paginaNovo() {
         ListSiteDto
     }
 
-    await httpPost("/Pagina/Novo", pagina).then(x=>{
-        if(x){
-            openView("listaPagina", true)
-        }else{
-            alert("erro")
-        }
-    });
+    await httpPost("/Pagina/Novo", pagina)
 }
