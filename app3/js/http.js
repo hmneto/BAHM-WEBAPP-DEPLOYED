@@ -6,12 +6,6 @@ function httpGet(link) {
         Authorization: "Bearer " + sessionStorage.getItem("loginStore"),
       }),
     }).then(function (x) {
-      if(x.status == 403){
-        x.text().then(xs=>{
-          alert(xs)
-
-        })
-      }
       if (x.status == 401) {
         openView("login")
         sessionStorage.setItem("loginStore", false)
