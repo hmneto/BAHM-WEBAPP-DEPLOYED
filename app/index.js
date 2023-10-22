@@ -1,5 +1,5 @@
 // const linkApi = "https://localhost:7143"
-const linkApi = "https://bahmteste2.fly.dev"
+const linkApi = "https://bahm6.fly.dev"
 // const linkApi = "http://0.0.0.0"
 // const linkApi = "https://localhost:5001"
 // const linkApi = "https://bahm.fly.dev"
